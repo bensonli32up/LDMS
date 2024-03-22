@@ -27,7 +27,7 @@ public class NewAmortisationScheduleVOTest {
     void shouldPassValidationWhenAllFieldsAreValid() {
         final NewAmortisationScheduleVO validVO = testingNewAmortisationScheduleWithoutBalloon();
 
-        Set<ConstraintViolation<NewAmortisationScheduleVO>> violations = validator.validate(validVO);
+        final Set<ConstraintViolation<NewAmortisationScheduleVO>> violations = validator.validate(validVO);
         assertThat(violations).isEmpty();
     }
 
@@ -36,7 +36,7 @@ public class NewAmortisationScheduleVOTest {
         final NewAmortisationScheduleVO vo = testingNewAmortisationScheduleWithoutBalloon();
         vo.setAssetCost(BigDecimal.valueOf(-1) );
 
-        Set<ConstraintViolation<NewAmortisationScheduleVO>> violations = validator.validate(vo);
+        final Set<ConstraintViolation<NewAmortisationScheduleVO>> violations = validator.validate(vo);
         assertThat(violations).hasSize(1);
         assertThat(violations.iterator().next().getMessage()).isEqualTo("Asset cost must be zero or positive.");
     }
@@ -46,7 +46,7 @@ public class NewAmortisationScheduleVOTest {
         final NewAmortisationScheduleVO vo = testingNewAmortisationScheduleWithoutBalloon();
         vo.setNumberOfPayments(-1 );
 
-        Set<ConstraintViolation<NewAmortisationScheduleVO>> violations = validator.validate(vo);
+        final Set<ConstraintViolation<NewAmortisationScheduleVO>> violations = validator.validate(vo);
         assertThat(violations).hasSize(1);
         assertThat(violations.iterator().next().getMessage()).isEqualTo("Number of payments must be zero or positive.");
     }
@@ -56,7 +56,7 @@ public class NewAmortisationScheduleVOTest {
         final NewAmortisationScheduleVO vo = testingNewAmortisationScheduleWithoutBalloon();
         vo.setInterestRate(BigDecimal.valueOf(-1) );
 
-        Set<ConstraintViolation<NewAmortisationScheduleVO>> violations = validator.validate(vo);
+        final Set<ConstraintViolation<NewAmortisationScheduleVO>> violations = validator.validate(vo);
         assertThat(violations).hasSize(1);
         assertThat(violations.iterator().next().getMessage()).isEqualTo("Interest rate must be zero or positive.");
     }
@@ -66,7 +66,7 @@ public class NewAmortisationScheduleVOTest {
         final NewAmortisationScheduleVO vo = testingNewAmortisationScheduleWithoutBalloon();
         vo.setDeposit(BigDecimal.valueOf(-1) );
 
-        Set<ConstraintViolation<NewAmortisationScheduleVO>> violations = validator.validate(vo);
+        final Set<ConstraintViolation<NewAmortisationScheduleVO>> violations = validator.validate(vo);
         assertThat(violations).hasSize(1);
         assertThat(violations.iterator().next().getMessage()).isEqualTo("Deposit must be zero or positive.");
     }
@@ -76,7 +76,7 @@ public class NewAmortisationScheduleVOTest {
         final NewAmortisationScheduleVO vo = testingNewAmortisationScheduleWithoutBalloon();
         vo.setBalloonPayment(BigDecimal.valueOf(-1) );
 
-        Set<ConstraintViolation<NewAmortisationScheduleVO>> violations = validator.validate(vo);
+        final Set<ConstraintViolation<NewAmortisationScheduleVO>> violations = validator.validate(vo);
         assertThat(violations).hasSize(1);
         assertThat(violations.iterator().next().getMessage()).isEqualTo("Balloon payment must be zero or positive if provided.");
     }
@@ -92,7 +92,7 @@ public class NewAmortisationScheduleVOTest {
                 new BigDecimal("10000")
         );
 
-        Set<ConstraintViolation<NewAmortisationScheduleVO>> violations = validator.validate(vo);
+        final Set<ConstraintViolation<NewAmortisationScheduleVO>> violations = validator.validate(vo);
         assertThat(violations).isNotEmpty();
     }
 }

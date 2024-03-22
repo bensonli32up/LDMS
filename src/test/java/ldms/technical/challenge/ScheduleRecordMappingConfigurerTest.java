@@ -44,11 +44,11 @@ class ScheduleRecordMappingConfigurerTest {
         assertEquals(scheduleRecord.getBalloonPayment(), scheduleRecordVO.getBalloonPayment());
         assertEquals(scheduleRecord.getInterestRate(), scheduleRecordVO.getInterestRate());
 
-        List<AmortizationScheduleVO> amortizationScheduleVOS = scheduleRecordVO.getAmortizationScheduleVOS();
+        final List<AmortizationScheduleVO> amortizationScheduleVOS = scheduleRecordVO.getAmortizationScheduleVOS();
         assertNotNull(amortizationScheduleVOS);
         assertEquals(1, amortizationScheduleVOS.size());
 
-        AmortizationScheduleVO vo = amortizationScheduleVOS.get(0);
+        final AmortizationScheduleVO vo = amortizationScheduleVOS.get(0);
         assertEquals(amortizationSchedule.getId(), vo.getId());
         assertEquals(0, vo.getRoundedBalance().compareTo(amortizationSchedule.getBalance().setScale(2, BigDecimal.ROUND_HALF_UP)));
         assertEquals(0, vo.getRoundedPayment().compareTo(amortizationSchedule.getPayment().setScale(2, BigDecimal.ROUND_HALF_UP)));

@@ -87,7 +87,7 @@ class CalculateUtilTest {
         assertEquals(12, scheduleList.size(), "The schedule list size should match the expected number of payments.");
 
         for (int i = 0; i < scheduleList.size(); i++) {
-            AmortizationSchedule schedule = scheduleList.get(i);
+            final AmortizationSchedule schedule = scheduleList.get(i);
             assertEquals(expectedMonthlyPayment, schedule.getPayment().setScale(2, RoundingMode.HALF_UP), "Payment for period " + (i + 1) + " does not match expected.");
             assertEquals(expectedPrincipals[i], schedule.getPrincipal().setScale(2, RoundingMode.HALF_UP), "Principal for period " + (i + 1) + " does not match expected.");
             assertEquals(expectedInterests[i], schedule.getInterest().setScale(2, RoundingMode.HALF_UP), "Interest for period " + (i + 1) + " does not match expected.");
