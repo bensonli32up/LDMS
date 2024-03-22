@@ -1,0 +1,37 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: benson
+      changes:
+        - createTable:
+            tableName: amortization_schedule
+            columns:
+              - column:
+                  name: id
+                  type: int
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+                    autoIncrement: true
+              - column:
+                  name: period
+                  type: int
+              - column:
+                  name: payment
+                  type: decimal(19,2)
+              - column:
+                  name: principal
+                  type: decimal(19,2)
+              - column:
+                  name: interest
+                  type: decimal(19,2)
+              - column:
+                  name: balance
+                  type: decimal(19,2)
+              - column:
+                  name: schedule_id
+                  type: int
+                  constraints:
+                    nullable: true
+                    foreignKeyName: fk_amortization_schedule_schedule_record
+                    references: schedule_record(id)

@@ -1,0 +1,30 @@
+databaseChangeLog:
+  - changeSet:
+      id: 2
+      author: benson
+      changes:
+        - createTable:
+            tableName: schedule_record
+            columns:
+              - column:
+                  name: id
+                  type: int
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+                    autoIncrement: true
+              - column:
+                  name: asset_cost
+                  type: decimal(19,2)
+              - column:
+                  name: deposit
+                  type: decimal(19,2)
+              - column:
+                  name: interest_rate
+                  type: decimal(19,2)
+              - column:
+                  name: number_of_payments
+                  type: int
+              - column:
+                  name: balloon_payment
+                  type: decimal(19,2)

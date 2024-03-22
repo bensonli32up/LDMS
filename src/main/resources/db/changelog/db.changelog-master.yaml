@@ -1,0 +1,5 @@
+databaseChangeLog:
+  - include:
+      file: classpath:/db/changelog/changes/create_table_amortization_schedule.yaml
+  - include:
+      file: classpath:/db/changelog/changes/create_table_schedule_record.yaml

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>Amortization Schedules</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+<h1>Manage Amortization Schedules</h1>
+
+<h2>Create Schedule</h2>
+<form id="createScheduleForm">
+    Asset Cost: <input type="number" id="assetCost" required><br>
+    Deposit: <input type="number" id="deposit" required><br>
+    Interest Rate: <input type="number" step="0.01" id="interestRate" required><br>
+    Number of Payments: <input type="number" id="numberOfPayments" required><br>
+    Balloon Payment: <input type="number" id="balloonPayment"><br>
+    <button type="submit">Create Schedule</button>
+</form>
+
+<h2>Display All Schedules</h2>
+<button id="displayAllSchedules">Display All</button>
+
+<h2>Find Schedule by ID</h2>
+ID: <input type="number" id="scheduleId" required>
+<button id="findScheduleById">Find Schedule</button>
+<div id="scheduleResult"></div>
+
+<script src="/js/schedules.js"></script>
+</body>
+</html>
