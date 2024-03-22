@@ -48,7 +48,7 @@ class AmortisationScheduleServiceTest {
         when(scheduleRecordRepository.findAll()).thenReturn(Collections.singletonList(scheduleRecord));
         when(mapper.map(any(ScheduleRecord.class), eq(ScheduleRecordVO.class))).thenReturn(scheduleRecordVO);
 
-        List<ScheduleRecordVO> result = service.findAll();
+        final List<ScheduleRecordVO> result = service.findAll();
 
         assertNotNull(result);
         assertFalse(result.isEmpty());
@@ -62,7 +62,7 @@ class AmortisationScheduleServiceTest {
         when(scheduleRecordRepository.findById(id)).thenReturn(Optional.of(scheduleRecord));
         when(mapper.map(any(ScheduleRecord.class), eq(ScheduleRecordVO.class))).thenReturn(scheduleRecordVO);
 
-        ScheduleRecordVO result = service.findById(id);
+        final ScheduleRecordVO result = service.findById(id);
 
         assertNotNull(result);
         verify(scheduleRecordRepository, times(1)).findById(id);
@@ -78,7 +78,7 @@ class AmortisationScheduleServiceTest {
 
     @Test
     void createAmortisationSchedule() {
-        NewAmortisationScheduleVO newSchedule = testingNewAmortisationScheduleWithBalloon();
+        final NewAmortisationScheduleVO newSchedule = testingNewAmortisationScheduleWithBalloon();
         when(mapper.map(any(NewAmortisationScheduleVO.class), eq(ScheduleRecord.class))).thenReturn(scheduleRecord);
         when(scheduleRecordRepository.saveAndFlush(any(ScheduleRecord.class))).thenReturn(scheduleRecord);
         when(mapper.map(any(ScheduleRecord.class), eq(ScheduleRecordVO.class))).thenReturn(scheduleRecordVO);

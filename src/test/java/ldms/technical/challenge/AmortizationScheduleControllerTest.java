@@ -99,8 +99,7 @@ class AmortizationScheduleControllerTest {
 
     @Test
     void testCreateAmortizationSchedule_BadInput() throws Exception {
-        NewAmortisationScheduleVO newScheduleWithMissingAssetCost = new NewAmortisationScheduleVO();
-        // Setting up the object with required fields missing or bad data
+        final NewAmortisationScheduleVO newScheduleWithMissingAssetCost = new NewAmortisationScheduleVO();
 
         mockMvc.perform(post("/service/amortization-schedules/")
                         .contentType(MediaType.APPLICATION_JSON)

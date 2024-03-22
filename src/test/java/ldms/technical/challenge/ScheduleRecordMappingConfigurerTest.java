@@ -24,17 +24,17 @@ class ScheduleRecordMappingConfigurerTest {
     @BeforeEach
     void setUp() {
         modelMapper = new ModelMapper();
-        ScheduleRecordMappingConfigurer configurer = new ScheduleRecordMappingConfigurer();
+        final ScheduleRecordMappingConfigurer configurer = new ScheduleRecordMappingConfigurer();
         configurer.configure(modelMapper);
     }
 
     @Test
     void testScheduleRecordToScheduleRecordVOConversion() {
 
-        AmortizationSchedule amortizationSchedule = testingAmortizationSchedule();
-        ScheduleRecord scheduleRecord = testScheduleRecord();
+        final AmortizationSchedule amortizationSchedule = testingAmortizationSchedule();
+        final ScheduleRecord scheduleRecord = testScheduleRecord();
 
-        ScheduleRecordVO scheduleRecordVO = modelMapper.map(scheduleRecord, ScheduleRecordVO.class);
+        final ScheduleRecordVO scheduleRecordVO = modelMapper.map(scheduleRecord, ScheduleRecordVO.class);
 
         assertNotNull(scheduleRecordVO);
         assertEquals(scheduleRecord.getId(), scheduleRecordVO.getId());

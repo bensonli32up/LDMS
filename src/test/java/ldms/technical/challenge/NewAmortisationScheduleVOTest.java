@@ -25,7 +25,7 @@ public class NewAmortisationScheduleVOTest {
 
     @Test
     void shouldPassValidationWhenAllFieldsAreValid() {
-        NewAmortisationScheduleVO validVO = testingNewAmortisationScheduleWithoutBalloon();
+        final NewAmortisationScheduleVO validVO = testingNewAmortisationScheduleWithoutBalloon();
 
         Set<ConstraintViolation<NewAmortisationScheduleVO>> violations = validator.validate(validVO);
         assertThat(violations).isEmpty();
@@ -33,7 +33,7 @@ public class NewAmortisationScheduleVOTest {
 
     @Test
     void shouldFailValidationWhenAssetCostIsNegative() {
-        NewAmortisationScheduleVO vo = testingNewAmortisationScheduleWithoutBalloon();
+        final NewAmortisationScheduleVO vo = testingNewAmortisationScheduleWithoutBalloon();
         vo.setAssetCost(BigDecimal.valueOf(-1) );
 
         Set<ConstraintViolation<NewAmortisationScheduleVO>> violations = validator.validate(vo);
@@ -43,7 +43,7 @@ public class NewAmortisationScheduleVOTest {
 
     @Test
     void shouldFailValidationWhenNumberOfPaymentsIsNegative() {
-        NewAmortisationScheduleVO vo = testingNewAmortisationScheduleWithoutBalloon();
+        final NewAmortisationScheduleVO vo = testingNewAmortisationScheduleWithoutBalloon();
         vo.setNumberOfPayments(-1 );
 
         Set<ConstraintViolation<NewAmortisationScheduleVO>> violations = validator.validate(vo);
@@ -53,7 +53,7 @@ public class NewAmortisationScheduleVOTest {
 
     @Test
     void shouldFailValidationWhenInterestRateIsNegative() {
-        NewAmortisationScheduleVO vo = testingNewAmortisationScheduleWithoutBalloon();
+        final NewAmortisationScheduleVO vo = testingNewAmortisationScheduleWithoutBalloon();
         vo.setInterestRate(BigDecimal.valueOf(-1) );
 
         Set<ConstraintViolation<NewAmortisationScheduleVO>> violations = validator.validate(vo);
@@ -63,7 +63,7 @@ public class NewAmortisationScheduleVOTest {
 
     @Test
     void shouldFailValidationWhenDepositIsNegative() {
-        NewAmortisationScheduleVO vo = testingNewAmortisationScheduleWithoutBalloon();
+        final NewAmortisationScheduleVO vo = testingNewAmortisationScheduleWithoutBalloon();
         vo.setDeposit(BigDecimal.valueOf(-1) );
 
         Set<ConstraintViolation<NewAmortisationScheduleVO>> violations = validator.validate(vo);
@@ -73,7 +73,7 @@ public class NewAmortisationScheduleVOTest {
 
     @Test
     void shouldFailValidationWhenBalloonPaymentIsNegative() {
-        NewAmortisationScheduleVO vo = testingNewAmortisationScheduleWithoutBalloon();
+        final NewAmortisationScheduleVO vo = testingNewAmortisationScheduleWithoutBalloon();
         vo.setBalloonPayment(BigDecimal.valueOf(-1) );
 
         Set<ConstraintViolation<NewAmortisationScheduleVO>> violations = validator.validate(vo);
@@ -84,7 +84,7 @@ public class NewAmortisationScheduleVOTest {
     @ParameterizedTest
     @ValueSource(ints = {-1, 1000}) // Values outside the valid range
     void shouldFailValidationWhenNumberOfPaymentsIsInvalid(Integer numberOfPayments) {
-        NewAmortisationScheduleVO vo = new NewAmortisationScheduleVO(
+        final NewAmortisationScheduleVO vo = new NewAmortisationScheduleVO(
                 new BigDecimal("20000"),
                 new BigDecimal("5000"),
                 new BigDecimal("5"),

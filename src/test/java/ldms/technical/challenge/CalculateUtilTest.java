@@ -58,9 +58,9 @@ class CalculateUtilTest {
 
     @Test
     void testCreateAmortisationScheduleWithBalloonPayment() {
-        NewAmortisationScheduleVO vo = testingNewAmortisationScheduleWithBalloon();
+        final NewAmortisationScheduleVO vo = testingNewAmortisationScheduleWithBalloon();
 
-        List<AmortizationSchedule> scheduleList = CalculateUtil.createAmortisationSchedule(vo);
+        final List<AmortizationSchedule> scheduleList = CalculateUtil.createAmortisationSchedule(vo);
 
         final BigDecimal expectedMonthlyPayment = new BigDecimal("930.07");
         final BigDecimal[] expectedPrincipals = {
